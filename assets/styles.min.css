@@ -597,6 +597,7 @@ p { text-wrap: pretty; }
 }
 
 .about-image {
+  margin: 0;
   overflow: hidden;
   border-radius: var(--radius-md);
   aspect-ratio: 4 / 5;
@@ -629,9 +630,16 @@ p { text-wrap: pretty; }
 .about-copy p { margin: 18px 0 0; }
 .about-copy .btn { margin-top: 22px; }
 
-.about-story { display: grid; gap: 34px; }
-.about-story-head { max-width: 900px; }
+.about-story { display: grid; gap: clamp(34px, 4vw, 48px); }
+.about-story-head { max-width: 860px; }
 .about-story-head h2 { margin: 0; }
+.about-story .about-teaser {
+  grid-template-columns: minmax(360px, 0.88fr) minmax(0, 1.12fr);
+  gap: clamp(44px, 6vw, 76px);
+  align-items: start;
+}
+.about-story .about-copy { padding-top: 2px; }
+.about-story .about-copy p { max-width: 58ch; }
 .about-story .about-copy p:first-child { margin-top: 0; }
 
 .btn-disabled {
@@ -930,6 +938,7 @@ p { text-wrap: pretty; }
 
 @media (max-width: 900px) {
   .tour-groups .card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .about-story .about-teaser { grid-template-columns: 1fr; gap: 30px; }
   .nav-shell { grid-template-columns: 1fr auto; }
   .main-nav {
     position: fixed;
