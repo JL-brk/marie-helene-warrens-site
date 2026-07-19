@@ -30,7 +30,7 @@ export default {
     }
 
     const rows = Object.entries(labels).map(([key, label]) => {
-      const value = data[key] || "—";
+      const value = data[key] || "Niet ingevuld";
       return `<tr><th style="padding:8px 12px;text-align:left;vertical-align:top;color:#5a6675">${label}</th><td style="padding:8px 12px;color:#0a2444">${escapeHtml(value)}</td></tr>`;
     }).join("");
 
@@ -40,7 +40,7 @@ export default {
       replyTo: String(data.email),
       subject: `Websiteaanvraag · ${data.type || "Rondleiding"}`,
       html: `<div style="font-family:Arial,sans-serif;max-width:680px"><h1 style="font-size:24px;color:#0a2444">Nieuwe aanvraag via de website</h1><table style="width:100%;border-collapse:collapse">${rows}</table></div>`,
-      text: Object.entries(labels).map(([key, label]) => `${label}: ${data[key] || "—"}`).join("\n"),
+      text: Object.entries(labels).map(([key, label]) => `${label}: ${data[key] || "Niet ingevuld"}`).join("\n"),
     });
 
     return Response.json({ ok: true });
