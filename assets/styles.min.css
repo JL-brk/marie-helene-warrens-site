@@ -629,6 +629,20 @@ p { text-wrap: pretty; }
 .about-copy p { margin: 18px 0 0; }
 .about-copy .btn { margin-top: 22px; }
 
+.about-story { display: grid; gap: 34px; }
+.about-story-head { max-width: 900px; }
+.about-story-head h2 { margin: 0; }
+.about-story .about-copy p:first-child { margin-top: 0; }
+
+.btn-disabled {
+  cursor: default;
+  color: var(--muted);
+  border-color: var(--line);
+  background: var(--surface-subtle);
+  box-shadow: none;
+  pointer-events: none;
+}
+
 .dark-feature {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
@@ -656,6 +670,7 @@ p { text-wrap: pretty; }
 .page-section { padding-top: 34px; }
 
 .tour-groups { display: grid; gap: 72px; }
+.tour-groups .card-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .tour-group-head { max-width: 700px; margin-bottom: 24px; }
 .tour-group-head p { color: var(--muted); margin: 10px 0 0; }
 
@@ -914,6 +929,7 @@ p { text-wrap: pretty; }
 }
 
 @media (max-width: 900px) {
+  .tour-groups .card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .nav-shell { grid-template-columns: 1fr auto; }
   .main-nav {
     position: fixed;
@@ -978,6 +994,7 @@ p { text-wrap: pretty; }
   .eyebrow { margin-bottom: 17px; }
   .section-head { margin-bottom: 24px; }
   .card-grid { grid-template-columns: 1fr; gap: 14px; }
+  .tour-groups .card-grid { grid-template-columns: 1fr; }
   .home-tours-grid { grid-template-columns: 1fr; }
   .tour-card h3 { min-height: auto; }
   .tour-card-body { padding: 18px; }
