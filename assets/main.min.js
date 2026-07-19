@@ -103,11 +103,13 @@ const galleryCount = document.querySelector(".gallery-count");
 
 if (galleryImage && galleryCount) {
   const images = galleryImage.dataset.images.split("|").filter(Boolean);
+  const alts = galleryImage.dataset.alts?.split("|") ?? [];
   let currentIndex = 0;
 
   const showImage = (nextIndex) => {
     currentIndex = (nextIndex + images.length) % images.length;
     galleryImage.src = images[currentIndex];
+    if (alts[currentIndex]) galleryImage.alt = alts[currentIndex];
     galleryCount.textContent = `${currentIndex + 1} / ${images.length}`;
   };
 
