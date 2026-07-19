@@ -1,0 +1,7 @@
+{
+  "name": "marie-helene-warrens-site",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/build-localized-pages.mjs && node scripts/build-dist.mjs"
+  }
+}
